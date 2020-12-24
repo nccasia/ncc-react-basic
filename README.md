@@ -36,7 +36,7 @@
 - [Refs (React.createRef() and useRef() hook)](#)
 - [Higher Order Components (HOC)](#)
 
-## 4. Redux
+## 4. Redux (Optional)
 
 - [Redux data flow](#)
 - [State, Reducer, Store](#)
