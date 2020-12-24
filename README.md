@@ -28,13 +28,13 @@
 
 ## 3. React Advanced
 
+- [Hook: useState(), useEffect()](#)
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
-- [Higher Order Components (HOC)](#)
 - [Context](#)
 - [Fragment](#)
 - [Refs (React.createRef() and useRef() hook)](#)
-- [Hook: useState(), useEffect()](#)
+- [Higher Order Components (HOC)](#)
 
 ## 4. Redux
 
