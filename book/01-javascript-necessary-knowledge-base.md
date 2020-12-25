@@ -501,7 +501,7 @@ Ví dụ mình có đoạn code sau:
 
 ```javascript
 const number1 = 1;
-const number2 = number2;
+const number2 = number1;
 
 console.log(number2); // 1
 ```
