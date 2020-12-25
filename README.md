@@ -20,7 +20,7 @@
 - [Stateful and Stateless component](#)
 - [Method: Handling Event](https://reactjs.org/docs/handling-events.html)
 - [Passing method reference between components](#)
-- [How to add Two way binding?](#)
+- [How to add Two way binding?](#)(Optional)
 - [Styles component, inline styles](https://reactjs.org/docs/dom-elements.html#style)
 - [Conditionals](https://reactjs.org/docs/conditional-rendering.html)
 - [Lists rendering](https://reactjs.org/docs/lists-and-keys.html)
