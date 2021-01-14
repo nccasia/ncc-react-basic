@@ -13,7 +13,7 @@
 
 ## 2. React Base Features
 
-- [JSX](https://reactjs.org/docs/introducing-jsx.html), [Element](https://reactjs.org/docs/rendering-elements.html)
+- [JSX, Element](./book/02-react-base-features-syntax.md#2-jsx)
 - [Component Basic: Class-based and Function Component ](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
 - [Prop](https://reactjs.org/docs/components-and-props.html) & [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html), [Children property](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
 - [State & lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
