@@ -1,6 +1,6 @@
 # [NCC React Basic](https://nccasia.github.io/ncc-react-basic/)
 
-## 1. Javascript Necessary Knowledge Base
+## 1. Javascript Necessary Base Knowledge
 
 - [var, let and const](./book/01-javascript-necessary-knowledge-base.md#1-var-let-and-const)
 - [Arrow function](./book/01-javascript-necessary-knowledge-base.md#2-arrow-function)
