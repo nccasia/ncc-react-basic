@@ -25,6 +25,7 @@
 - [Conditionals](./book/03-conditional-and-list-rendering.md#1-conditional-rendering)
 - [Lists rendering](./book/03-conditional-and-list-rendering.md#2-list-rendering)
 - [Form & Form validation](https://reactjs.org/docs/forms.html)
+- [Thinking in React - Very IMPORTANT](https://reactjs.org/docs/thinking-in-react.html)
 
 ## 3. React Advanced
 
