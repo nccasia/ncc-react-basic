@@ -28,7 +28,7 @@
 
 ## 3. React Advanced
 
-- [Hook: useState(), useEffect()](#)
+- [Hook: useState(), useEffect(), useMemo(), useCallback()](#)
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
 - [Context](#)
