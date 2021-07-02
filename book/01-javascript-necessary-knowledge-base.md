@@ -205,7 +205,7 @@ window's name wants to code
 ```
 
 What the hợi??? Thực ra, `this` sẽ refer đến **_the owner of the function it is in_**, tuy nhiên trong trường hợp này function của chúng ta lại thuộc về window/global object.  
-Khi chúng ta call `this` bên trong function không thuộc object nào cả hoặc function bên trong một method, khi này this sẽ thuộc vền window/global object.
+Khi chúng ta call `this` bên trong function không thuộc object nào cả hoặc function bên trong một method, khi này this sẽ thuộc về window/global object.
 
 ```javascript
 var standAloneFunc = function () {

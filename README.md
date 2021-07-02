@@ -29,7 +29,6 @@
 
 ## 3. React Advanced
 
-- [Hook: useState(), useEffect(), useMemo(), useCallback()](#)
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
 - [Context](#)
@@ -42,3 +41,13 @@
 - [Redux data flow](#)
 - [State, Reducer, Store](#)
 - [Dispatching Action](#)
+
+## 5. React Hooks
+
+1. [Introducing Hooks](./book/05-react-hooks.md#1-introducing-hooks)
+2. [Using the State Hook](./book/05-react-hooks.md#2-using-the-state-hook)
+3. [Using the Effect Hook](./book/05-react-hooks.md#3-using-the-effect-hook)
+4. [Using the Context Hook](./book/05-react-hooks.md#4-using-the-context-hook)
+4. [Building your own Hooks](./book/05-react-hooks.md#5-building-your-own-hooks)
+5. [Additional Hooks][./book/05-react-hooks.md#6-additional-hooks]
+
