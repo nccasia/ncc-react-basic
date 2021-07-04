@@ -103,17 +103,17 @@ Chà, trông khá "cồng kềnh" nhỉ, giờ hãy xem đoạn code trở nên 
 import React, { useState } from 'react';
 
 const BananaEating = () => {
-	const [bananas, setBananas] = useState(0)
+  const [bananas, setBananas] = useState(0)
   const eatOneBanana = () => setBananas(bananas + 1)
 	
-	return (
-		<div>
-			<p>Bạn đã ăn {bananas} quả chuối!!!</p>
-			<button onClick={eatOneBanana}>
+  return (
+    <div>
+      <p>Bạn đã ăn {bananas} quả chuối!!!</p>
+      <button onClick={eatOneBanana}>
         Đói quá, ăn thêm quả nữa =)))))
       </button>
-		</div>
-	)
+    </div>
+  )
 }
 ```
 
@@ -188,7 +188,7 @@ Trên thực tế, `handlerFunction` sẽ có thể return 1 function khác, và
 
 ```jsx
 useEffect(() => {
-   console.log('Component đã được render!')
+  console.log('Component đã được render!')
 
   // return 1 function, sẽ được gọi ngay khi componentWillUnmount
   return () => {
@@ -263,7 +263,7 @@ import CounterContext from './CounterContext'
 import CounterInfo from './CounterInfo'
 
 const App = () => {
-	// Mình tận dụng những gì đã học ở trên vô đây luôn ha ^^!
+  // Mình tận dụng những gì đã học ở trên vô đây luôn ha ^^!
   const [count, setCount] = useState(0)
   const increase = () => {
     setCount(count + 1)
@@ -304,7 +304,7 @@ class CounterInfo extends React.Component {
     return (
       <Counter.Consumer>
         {{{ count, increase, decrease }} => (
-        	<div className="wrapper">
+          <div className="wrapper">
             <button onClick={decrease}>-</button>
             <span>{count}</span>
             <button onClick={increase}>+</button>
@@ -324,7 +324,7 @@ Chà, trông cũng rõ ràng, dễ hiểu ha, nhưng chưa là gì so với vi�
 import CounterContext from './CounterContext'
 
 const CounterInfo = () => {
-	// Trông chả khác gì local variables, bạn dễ dàng sử dụng ở bất cứ đâu trong function ^^
+  // Trông chả khác gì local variables, bạn dễ dàng sử dụng ở bất cứ đâu trong function ^^
   const { count, increase, decrease } = useContext(CounterContext)
   return (
     <div className="wrapper">
@@ -438,8 +438,8 @@ export const Counter1 = () => {
 }
 
 export const Counter2 = () => {
-	// Tương tự như trên, chỉ khác mỗi input nha ^^
-	const [count, incrementCount, decrementCount] = useCounter(100)
+  // Tương tự như trên, chỉ khác mỗi input nha ^^
+  const [count, incrementCount, decrementCount] = useCounter(100)
   return (
     <div>
       <div onClick={decrementCount}>-</div>
@@ -457,11 +457,11 @@ import { Counter1, Counter2 } from './counters'
 
 const App = () => {
   return (
-  <div>
-    <Counter1/>
-    <br/>
-    <Counter2/>
-  </div>
+    <div>
+      <Counter1/>
+      <br/>
+      <Counter2/>
+    </div>
   )
 }
 
@@ -518,12 +518,12 @@ const Counter = ({ initialCount }) => {
    * 2. Giá trị khởi tạo ban đầu initialCount
    * 3. Hàm init để trả về initialState đối với giá trị khởi tạo ban đầu
    * 
-	 * Có thể truyền initialState trực tiếp mà không cần hàm init
-	 * useReducer(reducer, initialState)		 
-	 *
-	 * useReducer trả về 1 mảng gồm:
-	 * 1. state là biến chứa giá trị hiện tại của state
-	 * 2. dispatch là hàm kích hoạt một action nào đó trong reducer để thay đổi state
+   * Có thể truyền initialState trực tiếp mà không cần hàm init
+   * useReducer(reducer, initialState)		 
+   *
+   * useReducer trả về 1 mảng gồm:
+   * 1. state là biến chứa giá trị hiện tại của state
+   * 2. dispatch là hàm kích hoạt một action nào đó trong reducer để thay đổi state
    */
   const [state, dispatch] = useReducer(reducer, initialCount, init)				
   return (
@@ -532,7 +532,7 @@ const Counter = ({ initialCount }) => {
       <button
         onClick={() => dispatch({type: 'RESET', payload: initialCount})}
       >       
-      Reset
+        Reset
       </button>
       <button onClick={() => dispatch({type: 'DECREMENT'})}>-</button>
       <button onClick={() => dispatch({type: 'INCREMENT'})}>+</button>
@@ -563,7 +563,7 @@ Hmmmm, cái này cũng có vẻ khó hiểu, thế thì ta lại đụng vô cod
  */ 
 const Button = React.memo(({ children, onClick }) => {
 	useEffect(() => {
-		console.log('Button được render lại nè!')
+      console.log('Button được render lại nè!')
 	}, [onClick])
 	
 	return <button onClick={onClick}>{children}</button>
@@ -606,11 +606,11 @@ Vậy nên, để giải quyết vấn đề này, ta thay lại một số dòn
 ```jsx
 // ...
 const increment = useCallback(() => {
-	setCount(count + 1)
+  setCount(count + 1)
 }, [count])
 
 const incrementOtherCounter = useCallback(() => {
-	setOtherCounter(otherCounter + 1)
+  setOtherCounter(otherCounter + 1)
 }, [otherCounter])
 // ...
 ```
@@ -627,9 +627,9 @@ Vì thế, bạn có thể sử dụng `useMemo` để ngăn việc thực thi l
 Chà, có vẻ hơi khó hiểu chút, vậy thì, ta sẽ so sánh code đơn giản giữa trường hợp sử dụng `useMemo` và không sử dụng nhé:
 ```jsx
 const WithoutUseMemo = ({ products }) => {
-	const [state, setState] = useState(0)
+  const [state, setState] = useState(0)
 
-	/*
+  /*
    * Giả sử việc tính toán của hàm calculateBigTotalPrice vô cùng lâu, 
    * nó sẽ luôn được thực thi mỗi lần WithoutUseMemo re-render.
    * Điều này có thể gây ra vấn đề về hiệu năng của ứng dụng
@@ -638,9 +638,9 @@ const WithoutUseMemo = ({ products }) => {
 };
 
 const WithUseMemo = ({ products }) => {
-	const [state, setState] = useState(0)
+  const [state, setState] = useState(0)
 
-	/*
+  /*
    * useMemo sẽ giúp cache lại kết quả của lần tính toán trước đó.
    * Hàm calculateBigTotalPrice sẽ chỉ được thực thi khi products thay đổi.
    */
