@@ -27,9 +27,17 @@
 - [Form & Form validation](https://reactjs.org/docs/forms.html)
 - [Thinking in React - Very IMPORTANT](https://reactjs.org/docs/thinking-in-react.html)
 
-## 3. React Advanced
+## 3. React Hooks
 
-- [Hook: useState(), useEffect(), useMemo(), useCallback()](#)
+1. [Introducing Hooks](./book/05-react-hooks.md#1-introducing-hooks)
+2. [Using the State Hook](./book/05-react-hooks.md#2-using-the-state-hook)
+3. [Using the Effect Hook](./book/05-react-hooks.md#3-using-the-effect-hook)
+4. [Using the Context Hook](./book/05-react-hooks.md#4-using-the-context-hook)
+4. [Building your own Hooks](./book/05-react-hooks.md#5-building-your-own-hooks)
+5. [Additional Hooks](./book/05-react-hooks.md#6-additional-hooks)
+
+## 4. React Advanced
+
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
 - [Context](#)
@@ -37,7 +45,7 @@
 - [Refs (React.createRef() and useRef() hook)](#)
 - [Higher Order Components (HOC)](#)
 
-## 4. Redux (Optional)
+## 5. Redux (Optional)
 
 - [Redux data flow](#)
 - [State, Reducer, Store](#)
