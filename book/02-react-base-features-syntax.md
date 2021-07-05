@@ -2,16 +2,27 @@
 
 Table of contents
 
-1. [Preparation](#1-preparation)
-2. [JSX](#2-jsx)
-3. [Component Basics](#3-Component-Basics)
-4. [Props](#4-props)
-5. [Children Property](#5-children-property)
-6. [State](#6-state)
-7. [Handling Event with Methods](#7-handling-event-with-methods)
-8. [Stateless and Stateful component](#8-stateless-and-stateful-component)
-9. [Passing Method References between Components](#9-passing-method-references-between-components)
-10. [Two way binding](#10-two-way-binding)
+- [02: React Base Features & Syntax](#02-react-base-features--syntax)
+  - [1. Preparation](#1-preparation)
+  - [2. JSX](#2-jsx)
+  - [3. Component Basics](#3-component-basics)
+    - [Classed-base component](#classed-base-component)
+    - [Functional component](#functional-component)
+    - [Reusing component](#reusing-component)
+  - [4. Props](#4-props)
+  - [5. Children Property](#5-children-property)
+  - [6. State](#6-state)
+    - [Class-based component](#class-based-component)
+      - [Update state](#update-state)
+    - [Functional Component](#functional-component-1)
+  - [7. Stateless and Stateful component](#7-stateless-and-stateful-component)
+    - [Stateless component](#stateless-component)
+    - [Stateful component](#stateful-component)
+  - [8. Handling Event with Methods](#8-handling-event-with-methods)
+  - [9. Passing Method References between Components](#9-passing-method-references-between-components)
+  - [10. Two way binding](#10-two-way-binding)
+  - [Summary](#summary)
+  - [Time to Practice](#time-to-practice)
 
 ---
 
@@ -232,7 +243,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <h1>React Sample App</h1>
         {/* State Usage */}
         <Person name={this.state.person.name}>{this.state.statement}</Person>
@@ -281,7 +292,7 @@ const App = () => {
   const [statement, setStatement] = useState('Love you 3000!');
 
   return (
-    <div className="App">
+    <div className='App'>
       <h1>React Sample App</h1>
       {/* State Usage */}
       <Person name={person.name}>{statement}</Person>
@@ -303,65 +314,7 @@ function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S
 
 Ở ví dụ trên, mình sử dụng destructuring `[person, setPerson]`, lúc này `person` là current state và `setPerson()` là function để update `person`.
 
-## 7. Handling Event with Methods
-
-Ở ví dụ trên, mình có handle onClick event bằng một arrow function. Tuy nhiên logic trong function đó không phải lúc nào cũng đơn giản như vậy phải không nào. Chúng ta sẽ tách đống logic đó ra một method rồi gọi lại sau:
-
-```jsx
-class App extends React.Component {
-  // State Declaration
-  state = {
-    person: {
-      name: 'Iron man',
-    },
-    statement: 'Love you 3000!',
-  };
-
-  changePerson = () => {
-    this.setState({
-      person: { name: 'Morgan Stark' },
-    });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h1>React Sample App</h1>
-        {/* State Usage */}
-        <Person name={this.state.person.name}>{this.state.statement}</Person>
-
-        <button onClick={() => this.changePerson()}>Change person</button>
-      </div>
-    );
-  }
-}
-```
-
-Và với functional component
-
-```jsx
-const App = () => {
-  // State Declaration
-  const [person, setPerson] = useState({ name: 'Iron man' });
-  const [statement, setStatement] = useState('Love you 3000!');
-
-  const changePerson = () => {
-    setPerson({ name: 'Morgan Stark' });
-  };
-
-  return (
-    <div className="App">
-      <h1>React Sample App</h1>
-      {/* State Usage */}
-      <Person name={person.name}>{statement}</Person>
-
-      <button onClick={() => changePerson()}>Change person</button>
-    </div>
-  );
-};
-```
-
-## 8. Stateless and Stateful component
+## 7. Stateless and Stateful component
 
 ### Stateless component
 
@@ -387,6 +340,64 @@ Stateful component hay còn gọi là `smart components` hoặc `container compo
 **Lời khuyên** là cố gắng sử dụng stateless component nhiều nhất có thể, Stateful component là component bao lấy những stateless component đó. Điều đó giúp cho application của bạn dễ quản lý và maintain. Luồng data sẽ rành mạch, rõ ràng. Bên cạnh đó cũng rất tường mình về vị trí của main logic cũng là nơi data được thay đổi.
 
 > **Have as many pure functional presentational components as possible!**
+
+## 8. Handling Event with Methods
+
+Ở ví dụ trên, mình có handle onClick event bằng một arrow function. Tuy nhiên logic trong function đó không phải lúc nào cũng đơn giản như vậy phải không nào. Chúng ta sẽ tách đống logic đó ra một method rồi gọi lại sau:
+
+```jsx
+class App extends React.Component {
+  // State Declaration
+  state = {
+    person: {
+      name: 'Iron man',
+    },
+    statement: 'Love you 3000!',
+  };
+
+  changePerson = () => {
+    this.setState({
+      person: { name: 'Morgan Stark' },
+    });
+  };
+
+  render() {
+    return (
+      <div className='App'>
+        <h1>React Sample App</h1>
+        {/* State Usage */}
+        <Person name={this.state.person.name}>{this.state.statement}</Person>
+
+        <button onClick={() => this.changePerson()}>Change person</button>
+      </div>
+    );
+  }
+}
+```
+
+Và với functional component
+
+```jsx
+const App = () => {
+  // State Declaration
+  const [person, setPerson] = useState({ name: 'Iron man' });
+  const [statement, setStatement] = useState('Love you 3000!');
+
+  const changePerson = () => {
+    setPerson({ name: 'Morgan Stark' });
+  };
+
+  return (
+    <div className='App'>
+      <h1>React Sample App</h1>
+      {/* State Usage */}
+      <Person name={person.name}>{statement}</Person>
+
+      <button onClick={() => changePerson()}>Change person</button>
+    </div>
+  );
+};
+```
 
 ## 9. Passing Method References between Components
 
@@ -464,7 +475,7 @@ const Person = (props) => {
     <div>
       <p onClick={clickHandle}>I am {props.name}!</p>
       <p>{props.children}</p>
-      <input type="text" onChange={props.change} value={props.name} />
+      <input type='text' onChange={props.change} value={props.name} />
     </div>
   );
 };
@@ -498,4 +509,5 @@ Tổng kết day-02 có những topic sau quan trọng cần ghi nhớ nha:
 5. [Two way binding](#10-two-way-binding)
 
 ## Time to Practice
-Các bạn hãy cố gắng tự thực hành những kiến thức trên để quen tay và hiểu hơn nha! 
+
+Các bạn hãy cố gắng tự thực hành những kiến thức trên để quen tay và hiểu hơn nha!

@@ -14,13 +14,13 @@
 ## 2. React Base Features
 
 - [JSX, Element](./book/02-react-base-features-syntax.md#2-jsx)
-- [Component Basic: Class-based and Function Component ](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
-- [Prop](https://reactjs.org/docs/components-and-props.html) & [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html), [Children property](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
-- [State & lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-- [Stateful and Stateless component](#)
-- [Method: Handling Event](https://reactjs.org/docs/handling-events.html)
-- [Passing method reference between components](#)
-- [How to add Two way binding?](#)(Optional)
+- [Component Basic: Class-based and Function Component ](./book/02-react-base-features-syntax.md#3-component-basics)
+- [Prop](./book/02-react-base-features-syntax.md#4-props) & [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html), [Children property](./book/02-react-base-features-syntax.md#5-children-property)
+- [State & lifecycle](./book/02-react-base-features-syntax.md#6-state)
+- [Stateful and Stateless component](./book/02-react-base-features-syntax.md#7-stateless-and-stateful-component)
+- [Method: Handling Event](./book/02-react-base-features-syntax.md#8-handling-event-with-methods)
+- [Passing method reference between components](./book/02-react-base-features-syntax.md#9-passing-method-references-between-components)
+- [How to add Two way binding?](./book/02-react-base-features-syntax.md#10-two-way-binding)(Optional)
 - [Styles component, inline styles](https://reactjs.org/docs/dom-elements.html#style)
 - [Conditionals](./book/03-conditional-and-list-rendering.md#1-conditional-rendering)
 - [Lists rendering](./book/03-conditional-and-list-rendering.md#2-list-rendering)
@@ -33,8 +33,8 @@
 2. [Using the State Hook](./book/05-react-hooks.md#2-using-the-state-hook)
 3. [Using the Effect Hook](./book/05-react-hooks.md#3-using-the-effect-hook)
 4. [Using the Context Hook](./book/05-react-hooks.md#4-using-the-context-hook)
-4. [Building your own Hooks](./book/05-react-hooks.md#5-building-your-own-hooks)
-5. [Additional Hooks](./book/05-react-hooks.md#6-additional-hooks)
+5. [Building your own Hooks](./book/05-react-hooks.md#5-building-your-own-hooks)
+6. [Additional Hooks](./book/05-react-hooks.md#6-additional-hooks)
 
 ## 4. React Advanced
 

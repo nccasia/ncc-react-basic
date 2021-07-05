@@ -2,8 +2,16 @@
 
 Table of contents
 
-1. [Conditional Rendering](#1-conditional-rendering)
-2. [List Rendering](#2-list-rendering)
+- [03: Conditional and List Rendering](#03-conditional-and-list-rendering)
+  - [1. Conditional Rendering](#1-conditional-rendering)
+    - [1. Sử dụng toán tử `&&`:](#1-sử-dụng-toán-tử-)
+    - [2. Sử dụng Conditional (ternary) operator: `condition ? exprIfTrue : exprIfFalse`](#2-sử-dụng-conditional-ternary-operator-condition--expriftrue--expriffalse)
+    - [3. Sử dụng `if - else` thông thường](#3-sử-dụng-if---else-thông-thường)
+  - [2. List Rendering](#2-list-rendering)
+    - [2.1. List rendering basic syntax](#21-list-rendering-basic-syntax)
+    - [2.2. List rendering advanced](#22-list-rendering-advanced)
+  - [Summary](#summary)
+  - [Time to Practice](#time-to-practice)
 
 ---
 
@@ -32,7 +40,7 @@ Có cách để sử dụng như sau:
 ```jsx
 // App.js
 return (
-  <div className="App">
+  <div className='App'>
     <h1>React Sample App</h1>
     <button onClick={togglePerson} style={btnStyle}>
       Toggle Person
@@ -74,7 +82,7 @@ if (showPerson) {
 }
 
 return (
-  <div className="App">
+  <div className='App'>
     <h1>React Sample App</h1>
     <button onClick={togglePerson} style={btnStyle}>
       Toggle Person
@@ -100,7 +108,7 @@ Với 3 cách trên, tùy vào từng ngữ cạnh cụ thể các bạn hãy ch
 
 ## 2. List Rendering
 
-### 2.1 List rendering basic syntax
+### 2.1. List rendering basic syntax
 
 Để render một list chúng ta sẽ sử dụng `Array.map()` function. Chi tiết về map() các bạn xem lại trong day-01 nha.
 Mình sẽ lấy một ví dụ ngắn, đơn giản như sau
@@ -121,7 +129,7 @@ Keys giúp React xác định được item nào được add, changed hoặc re
 
 > Key must be unique
 
-### 2.2 List rendering advanced
+### 2.2. List rendering advanced
 
 Giờ chúng ta quay trở lại với ví dụ về person ban đầu. Khởi tạo với một mảng persons:
 
@@ -138,7 +146,7 @@ và return:
 
 ```jsx
 return (
-  <div className="App">
+  <div className='App'>
     <h1>React Sample App</h1>
     <button onClick={togglePerson} style={btnStyle}>
       Toggle Person
@@ -241,7 +249,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <h1>React Sample App</h1>
       <button onClick={togglePerson} style={btnStyle}>
         Toggle Person

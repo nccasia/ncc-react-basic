@@ -2,15 +2,15 @@
 
 Table of contents
 
-1. [Adding Styling with Stylesheets](#1-adding-styling-with-stylesheets)
-2. [Setting Class Name Dynamically](#2-setting-class-name-dynamically)
-3. [Working with CSS Modules](#3-working-with-css-modules)
-4. [CSS Modules and Media Queries](#4-css-modules-and-media-queries)
-
-5. [Inline Styles](#5-inline-styles)
-6. [Setting Styles Dynamically](#5-setting-styles-dynamically)
-7. [Additional: Using Radium for Pseudo and Media Queries](#7-additional-using-radium-for-pseudo-and-media-queries)
-8. [Additional: Using Styled Components and Dynamic Styles](#8-additional-using-styled-components-and-dynamic-styles)
+- [Day 04: Styling React Elements and Components](#day-04-styling-react-elements-and-components)
+  - [1. Adding Styling with Stylesheets](#1-adding-styling-with-stylesheets)
+  - [2. Setting Class Name Dynamically](#2-setting-class-name-dynamically)
+  - [3. Working with CSS Modules](#3-working-with-css-modules)
+  - [4. CSS Modules and Media Queries](#4-css-modules-and-media-queries)
+  - [5. Inline Styles](#5-inline-styles)
+  - [6. Setting Styles Dynamically](#6-setting-styles-dynamically)
+  - [7. Additional: Using Radium for Pseudo and Media Queries](#7-additional-using-radium-for-pseudo-and-media-queries)
+  - [8. Additional: Using Styled Components and Dynamic Styles](#8-additional-using-styled-components-and-dynamic-styles)
 
 ---
 
@@ -44,10 +44,10 @@ const Person = (props) => {
   };
 
   return (
-    <div className="person">
+    <div className='person'>
       <p onClick={clickHandle}>I am {props.name}!</p>
       <p>{props.children}</p>
-      <input type="text" onChange={props.change} value={props.name} />
+      <input type='text' onChange={props.change} value={props.name} />
     </div>
   );
 };
