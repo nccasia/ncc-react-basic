@@ -4,13 +4,17 @@ Table of contents
 
 - [01: Javascript Necessary Knowledge Base](#01-javascript-necessary-knowledge-base)
   - [1. `var`, `let` and `const`](#1-var-let-and-const)
-    - [1.1 Var](#11-var)
+    - [1.1 `var`](#11-var)
       - [Scope: globally scoped or function/locally scoped](#scope-globally-scoped-or-functionlocally-scoped)
       - [Var variables: re-declared and updated](#var-variables-re-declared-and-updated)
-    - [1.2 Let](#12-let)
+      - [Hoisting of var](#hoisting-of-var)
+      - [`Var` weakness](#var-weakness)
+    - [1.2 `let`](#12-let)
       - [Scope: block scoped](#scope-block-scoped)
       - [Let can be updated but not re-declared](#let-can-be-updated-but-not-re-declared)
-    - [1.3 Const](#13-const)
+      - [Hoisting of `let`](#hoisting-of-let)
+    - [1.3 `Const`](#13-const)
+      - [Hoisting of `const`](#hoisting-of-const)
   - [2. Arrow function](#2-arrow-function)
     - [`this` trong arrow function](#this-trong-arrow-function)
   - [3. Import and Export](#3-import-and-export)
@@ -36,7 +40,7 @@ Table of contents
 
 ## 1. `var`, `let` and `const`
 
-### 1.1 Var
+### 1.1 `var`
 
 #### Scope: globally scoped or function/locally scoped
 
@@ -70,33 +74,45 @@ var name = 'thaibm';
 name = 'quytm'; // update
 ```
 
+#### Hoisting of var
+
+Hoisting là cơ chế của JavaScript cho phép các khai báo biến hoặc hàm được dời lên trên đầu phạm vi của chúng trước khi thực thi đoạn code. Trong trường hợp này phạm vi của biến được khai báo bằng var là **function scoped** hoặc **globally scoped**.
+
+```javascript
+console.log(name);
+var name = 'Do Dinh Van';
+```
+
+Tương đương với:
+
+```javascript
+var name;
+console.log(name); // name is undefined
+name = 'Do Dinh Van';
+```
+
+Biến được khai báo bởi `var` được dời lên đầu phạm vi và được khởi tạo với giá trị là `undefined`.
+
+#### `Var` weakness
+
 Scope và Re-declared là một trong những điểm yếu của `var`, nó sẽ nảy sinh vấn đề nếu như chúng ta ko biết hoặc ko nhớ biến đó đã từng được khai báo trước đó.
+Chúng ta thử tham khảo ví dụ dưới đây:
 
 ```javascript
-if (true) {
-  var name = 'minhnt';
+var name = 'Anh Pham Tien';
+var age = 24;
+
+if (age > 20) {
+  var name = 'Thai Bui Minh';
 }
 
-console.log(name); // output: minhnt
+console.log(name); // "Thai Bui Minh"
 ```
 
-hoặc
+Khi `age > 20`, name bị redefined thành `"Thai Bui Minh"`. Sẽ không có vấn đề gì nếu bạn biết và muốn redefined lại biến `name`, tuy nhiên giả sử bạn không hề biết name đã được define trước đó, điều này hoàn toàn thực tế nếu như chúng ta làm việc trong một dự án thực tế, nơi có rất nhiều dòng code. Thế rồi có quá nhiều nơi có thể thay đổi một biến của bạn... so messy! T_T Thật khó để debug phải không nào.
+Và thật may mắn chung ta có `let` và `const`.
 
-```javascript
-var name = 'thaibm';
-/*
- * vô vàn code và logic khác ở đây
- */
-if (true) {
-  var name = 'minhnt';
-}
-
-console.log(name); // output: minhnt
-```
-
-Vấn đề trên sẽ khiến code của chúng ta rất khó có thể debug và bảo trì. Bởi vậy thật là may mắn khi chúng ta có `let` và `const`.
-
-### 1.2 Let
+### 1.2 `let`
 
 #### Scope: block scoped
 
@@ -125,7 +141,11 @@ let name = 'tutv';
 let name = 'thanhnv'; // Uncaught SyntaxError: Identifier 'name' has already been declared
 ```
 
-### 1.3 Const
+#### Hoisting of `let`
+
+Biến được khai báo bằng `let` cũng được hoisted lên đầu phạm vi (Ở đây là block nha). Tuy nhiên không giống như `var` giá trị biến là `undefined`, khi dùng `let` biết đó sẽ là chưa được khởi tạo. Bởi vậy, khi bạn sử dụng một biến trước khi được khai báo bằng `let`, lỗi `Reference Error` thôi. =)))
+
+### 1.3 `Const`
 
 `const` giống `let` về scope tuy nhiên, biến được khai báo bởi `const` thì không thể được update, gán giá trị khác.
 
@@ -153,6 +173,10 @@ const array = ['thaibm', 'quytm'];
 array[0] = 'thanhnv'; // ok, cũng chả lỗi luôn :v
 array = ['minhnt', 'tutv']; // Uncaught TypeError: Assignment to constant variable.
 ```
+
+#### Hoisting of `const`
+
+Biến được khai báo bằng `const` cũng được đưa lên đầu phạm vi. Tuy nhiên khi khai báo biến với `const` chúng ta phải khởi tạo giá trị ban đầu cho biến đó.
 
 ## 2. Arrow function
 
