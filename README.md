@@ -44,6 +44,7 @@
 - [Fragment](#)
 - [Refs (React.createRef() and useRef() hook)](#)
 - [Higher Order Components (HOC)](#)
+- [Portals](./book/06-react-advanced.md#7-using-the-portals)
 
 ## 5. Redux (Optional)
 
