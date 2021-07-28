@@ -104,7 +104,7 @@ Như vậy, chỉ khi status = true, background của dòng trạng thái mới 
 
 ## 3. Working with CSS Modules
 
-Khi code một dự án lớn, số lượng file, code quá nhiều, bạn không thể nhớ được mình đã đặt biết bao nhiêu className cho các thẻ HTML. Đôi khi các className có thể bị trùng nhau dẫn đến conflict, ảnh hưởng tới nhau.
+Khi code một dự án lớn, số lượng file, code quá nhiều, bạn không thể nhớ được mình đã đặt biết bao nhiêu className cho các thẻ HTML. Đôi khi các className có thể bị trùng nhau, style bị ghi đè không mong muốn dẫn đến conflict, ảnh hưởng tới nhau.
 Vì vậy CSS Modules ra đời để giúp chúng ta module hóa các stylesheet thành các file css nhỏ và scoped locally to the component (\*).
 
 ```
@@ -216,7 +216,7 @@ export function App() {
 
 ## 7. Additional: Using Radium for Pseudo and Media Queries
 
-Để sử dụng radium bạn cần phải cài thư viện radium bằng lệnh npm i radium hoặc yarn add radium.
+Để sử dụng radium bạn cần phải cài thư viện radium bằng lệnh `npm i radium` hoặc `yarn add radium`.
 Để sử dụng cần bọc bên ngoài 1 thẻ StyleRoot. Bạn có thể sử dụng Pseudo và Media Queries như ví dụ dưới đây.
 
 ```jsx
@@ -252,7 +252,7 @@ export default function App() {
 
 ## 8. Additional: Using Styled Components and Dynamic Styles
 
-Để cài thư viện styled component chúng ta dùng lệnh **npm i styled-components** hoặc **yarn add styled-components**
+Để cài thư viện styled component chúng ta dùng lệnh `npm i styled-components` hoặc `yarn add styled-components`.
 
 Để sử dụng chúng ta cần import như ví dụ bên dưới.
 
