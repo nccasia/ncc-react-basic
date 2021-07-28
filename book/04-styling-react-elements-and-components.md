@@ -107,9 +107,7 @@ Như vậy, chỉ khi status = true, background của dòng trạng thái mới 
 Khi code một dự án lớn, số lượng file, code quá nhiều, bạn không thể nhớ được mình đã đặt biết bao nhiêu className cho các thẻ HTML. Đôi khi các className có thể bị trùng nhau, style bị ghi đè không mong muốn dẫn đến conflict, ảnh hưởng tới nhau.
 Vì vậy CSS Modules ra đời để giúp chúng ta module hóa các stylesheet thành các file css nhỏ và scoped locally to the component (\*).
 
-```
-**scoped locally to the component (*)**: tất cả class name, selectors, animations trong css modules files sẽ chỉ hợp lệ ở component import nó và không ảnh hưởng tới thành phần các trong website.
-```
+`scoped locally to the component (*)`: tất cả class name, selectors, animations trong css modules files sẽ chỉ hợp lệ ở component import nó và không ảnh hưởng tới thành phần các trong website.
 
 Để sử dụng css module chúng ta import file css như dưới đây và sử dụng các class css dưới dạng styles.{tên class}.
 
