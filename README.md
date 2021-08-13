@@ -48,6 +48,8 @@
 
 ## 5. Redux (Optional)
 
-- [Redux data flow](#)
-- [State, Reducer, Store](#)
-- [Dispatching Action](#)
+- [Getting Started](./book/07-redux-basic.md#1-getting-started)
+- [Redux Data Flow](./book/07-redux-basic.md#2-redux-data-flow)
+- [State, Action, Reducer and Store](./book/07-redux-basic.md#3-state-action-reducer-and-store)
+- [Dispatching Action](./book/07-redux-basic.md#4-dispatching-action)
+- [Additional: Middleware and Redux Thunk](./book/07-redux-basic.md#5-additional-middleware-and-redux-thunk)
