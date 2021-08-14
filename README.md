@@ -40,8 +40,8 @@
 
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
-- [Context](#)
-- [Fragment](#)
+- [Context](./book/06-react-advanced.md#3-using-the-context)
+- [Fragment](./book/06-react-advanced.md#4-using-the-fragment)
 - [Refs (React.createRef() and useRef() hook)](#)
 - [Higher Order Components (HOC)](#)
 - [Portals](./book/06-react-advanced.md#7-using-the-portals)
