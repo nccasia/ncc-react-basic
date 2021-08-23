@@ -29,6 +29,8 @@
 Read more in 
   - [When to break up a component into multiple components](https://kentcdodds.com/blog/when-to-break-up-a-component-into-multiple-components)
   - [React Best Practices](https://www.codeinwp.com/blog/react-best-practices/)
+
+
 ## 3. React Hooks
 
 1. [Introducing Hooks](./book/05-react-hooks.md#1-introducing-hooks)
