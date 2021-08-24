@@ -6,6 +6,7 @@ __Table of Contents__
     - [1.1. What is Redux?](#11-what-is-redux)
     - [1.2. Why we need Redux?](#12-why-we-need-redux)
     - [1.3. Terminology](#13-terminology)
+    - [1.4. Compare between useContext and Redux](#14-compare-between-usecontext-and-redux)
 2. [Redux Data Flow](#2-redux-data-flow)
     - [2.1. Visualize Data Flow](#21-visualize-data-flow)
     - [2.2. Break into details](#22-break-into-details)
@@ -56,12 +57,12 @@ import React from 'react'
 
 export default function List() {
     // State được live. Một mảng chứa các todo
-    const todos = []
+    const [todos,setTodos] = useState([])
     // Method để update state
     const toggleComplete = id => {
         const newTodos = [...todos]
-        newTodos.forEach((todo, index) => {
-            if (index === id) {
+        newTodos.find((todo) => {
+            if (todo.id === id) {
                 todo.complete = !todo.complete
             }
         })
@@ -126,6 +127,103 @@ Trước khi bắt tay vào sử dụng Redux chúng ta nên nắm được mộ
 - __Store__: Nơi lưu trữ state của ứng dụng
 
 Mình sẽ giải thích kỹ hơn nhưng khái niệm này ở những phần sau, còn hiện tại các bạn cứ hiểu nôm na nó là như vậy đã nhé :smile:
+
+### 1.4. Compare between useContext and Redux
+
+`useContext` là một hook giúp chúng ta chia sẻ dữ liệu giữa các component mà không cần phải truyền props
+
+> Một VD của useContext
+
+```jsx
+//App.js
+import { createContext } from 'react';
+import Component1 from './Component1';
+
+export const Data = createContext();
+
+export default function App() {
+  return (
+    <div className="App">
+      <Data.Provider value={"Hello World!"}>
+        <Component1 />
+      </Data.Provider>
+    </div>
+  );
+}
+
+//Component1.js
+import { useState } from "react";
+import Component2 from "./Component2";
+
+const Component1 = () => {
+  return (
+    <>
+      <Component2 />
+    </>
+  );
+}
+
+//Component2.js
+import { useContext } from 'react';
+import { Data } from './App';
+
+const Component2 = () => {
+  const context = useContext(Data);
+  return <h1>{context}</h1>
+}
+
+//Result
+Hello World
+```
+
+> Nhìn qua ta thấy nó cũng làm việc không khác gì `Redux` đúng ko? Đều giúp chúng ta không phải truyền prop nữa. Nhưng 2 cái đều có những thứ khác nhau, cụ thể là:
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <p style="text-align:center"><strong>useContext&nbsp;</strong></p>
+      </td>
+      <td>
+        <p style="text-align:center"><strong>Redux</strong></p>
+      </td>
+    </tr>
+    <tr>
+      <td>useContext là 1 hook.</td>
+      <td>Redux là thư viện quản lý state.</td>
+    </tr>
+    <tr>
+      <td>Dùng để chia sẻ dữ liệu.</td>
+      <td>Dùng để quản lý dữ liệu và state.</td>
+    </tr>
+    <tr>
+      <td>Thay đổi giá trị bằng biến Context .</td>
+      <td>Thay đổi giá trị bằng reducer (pure function).</td>
+    </tr>
+    <tr>
+      <td>Có thể trực tiếp thay đổi state.</td>
+      <td>State là read-only. Chỉ có thể thay đổi gián tiếp.</td>
+    </tr>
+    <tr>
+      <td>Không có middleware.</td>
+      <td>Có middleware, giúp xử lý sâu hơn.&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Re-renders tất cả các component khi có update.</td>
+      <td>Chỉ re-render các component được update.</td>
+    </tr>
+    <tr>
+      <td>Dùng cho những app nhỏ.</td>
+      <td>Dùng trong những app lớn hơn.&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Dễ hiểu, ít code.</td>
+      <td>Phức tạp hơn.</td>
+    </tr>
+  </tbody>
+</table>
+
+> Vậy ta nên biết lúc nào nên sử dụng context, lúc nào nên dùng Redux. Cách dùng Redux mình sẽ trình bày ở các phần sau đây
 
 ## 2. Redux Data Flow
 
