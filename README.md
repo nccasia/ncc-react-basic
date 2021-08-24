@@ -26,7 +26,9 @@
 - [Lists rendering](./book/03-conditional-and-list-rendering.md#2-list-rendering)
 - [Form & Form validation](https://reactjs.org/docs/forms.html)
 - [Thinking in React - Very IMPORTANT](https://reactjs.org/docs/thinking-in-react.html)
-
+Read more in 
+  - [When to break up a component into multiple components](https://kentcdodds.com/blog/when-to-break-up-a-component-into-multiple-components)
+  - [React Best Practices](https://www.codeinwp.com/blog/react-best-practices/)
 ## 3. React Hooks
 
 1. [Introducing Hooks](./book/05-react-hooks.md#1-introducing-hooks)
@@ -40,8 +42,8 @@
 
 - [Http request in React (bonus: using Axios)](#)
 - [Routing](#)
-- [Context](#)
-- [Fragment](#)
+- [Context](./book/06-react-advanced.md#3-using-the-context)
+- [Fragment](./book/06-react-advanced.md#4-using-the-fragment)
 - [Refs (React.createRef() and useRef() hook)](#)
 - [Higher Order Components (HOC)](#)
 - [Portals](./book/06-react-advanced.md#7-using-the-portals)
