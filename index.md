@@ -26,9 +26,10 @@
 - [Lists rendering](./book/03-conditional-and-list-rendering.md#2-list-rendering)
 - [Form & Form validation](https://reactjs.org/docs/forms.html)
 - [Thinking in React - Very IMPORTANT](https://reactjs.org/docs/thinking-in-react.html)
-Read more in 
+  Read more in
   - [When to break up a component into multiple components](https://kentcdodds.com/blog/when-to-break-up-a-component-into-multiple-components)
   - [React Best Practices](https://www.codeinwp.com/blog/react-best-practices/)
+
 ## 3. React Hooks
 
 1. [Introducing Hooks](./book/05-react-hooks.md#1-introducing-hooks)
