@@ -154,8 +154,6 @@ const App = () => {
 };
 ```
 ### 2.2 Render props
-
-
 ```jsx
 import React from "react";
 import { Box, Button } from "@material-ui/core";
@@ -184,22 +182,24 @@ const WrapListItem = ({children}) => <Box {...cssContainer}>{children}</Box>
 const App = () => {
   return (
     <Box>
+      {/* List chỉ có button clear*/}
       <List 
         data={rejectedUsers} 
         render={user => 
           <WrapListItem>
-            <ClearIcon>
+            <Button variant="outlined" startIcon={<ClearIcon />}/>
             <Typography variant="h6" color="secondary">
               {user.name}
             </Typography>
           </WrapListItem>
         }
       />
+      {/* List có button add và textfield*/}
       <List 
         data={passedUsers} 
         render={user => 
           <WrapListItem>
-            <AddIcon>
+            <Button variant="outlined" startIcon={<AddIcon />}/>
             <Typography variant="h6" color="primary">
               {user.name}
             </Typography>
