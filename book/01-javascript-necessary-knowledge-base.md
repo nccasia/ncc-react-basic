@@ -578,11 +578,19 @@ Thay đổi thằng person1 nhưng person2 cũng đổi theo, vậy là sao? Tro
 
 ```javascript
 const obj1 = { name: 'thaibm' };
-const obj2 = { ...obj1 };
-const obj3 = JSON.parse(JSON.stringify(obj1));
-```
 
-**_Chú ý_** Với Spread operator thì chúng ta copy object ở 1 level thôi nha. Còn với cách dùng JSON thì Deep copy luôn. Tùy vào từng hoàn cảnh chúng ta sẽ sử dụng cách phù hợp.
+// Shallow copies
+const obj2 = { ...obj1 };
+
+// Deep clone https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy
+const obj3 = JSON.parse(JSON.stringify(obj1));
+const clone = structuredClone(original);
+```
+Hoặc sử dụng thư viện lodash: [cloneDeep](https://lodash.com/docs/#cloneDeep)
+Hoặc sử dụng đệ quy function.
+
+**_Chú ý_** 
+Spread syntax, Array.prototype.concat(), Array.prototype.slice(), Array.from(), Object.assign(), and Object.create()) do not create deep copies (instead, they create shallow copies.
 
 ## 8. Array functions
 
