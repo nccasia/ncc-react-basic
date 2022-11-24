@@ -652,5 +652,54 @@ const even = (element) => element % 2 === 0;
 console.log(array.some(even));
 // expected output: true
 ```
-
 Mình xin giới thiệu đến đây thôi, còn những function khác như `every()`, `find()`, `includes()`,... các bạn tìm hiểu thêm ở [đây](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array) nha.
+
+## 9. Xử lý lỗi với "try...catch"
+
+Dù chúng ta có cẩn thận thế nào, code của chúng ta vẫn sẽ có lỗi. Chúng xuất hiện có thể là bởi một input không lường trước từ người dùng, một thông báo lỗi từ server, hoặc từ một ngàn lẻ một lý do khác.
+
+Thông thường, một chương trình "chết" (ngay lập tức dừng lại) trong trường hợp có lỗi, và in nó ra trong console.
+
+Nhưng chúng ta có thể dùng cấu trúc `try...catch` để bắt lỗi, nhờ vậy chương trình của chúng ta có thể tiếp tục chạy và làm một điều gì đó hữu ích hơn là "chết" ngay như vậy.
+
+Cấu trúc `try...catch` có 2 phần chính: `try`, và sau đó `catch`
+
+```js
+try {
+  // code...
+} catch (err) {
+  // error handling
+}
+```
+
+Nó hoạt động như sau:
+1. Đầu tiên, câu lệnh trong `try {...}` được thực thi.
+2. Nếu không có lỗi, `catch (err)` bị bỏ qua: câu lệnh chạy hết trong `try` và tiếp tục, bỏ qua câu lệnh trong `catch`.
+3. Nếu có lỗi xảy ra thì việc thực thi câu lệnh trong `try` bị dùng lại ngay lập tức, và câu lệnh trong `catch(err)` được thực thi. Biến `err` (chúng ta có thể dùng bất kỳ tên nào cho nó) sẽ chứa một object chứa các thông tin về lỗi đã xảy ra.
+
+Vì vậy, một lỗi xảy ra trong `try {...}` sẽ không dừng chương trình lại và chúng ta có cơ hội để xử lý nó trong `catch`.
+
+Ví dụ không có lỗi: sẽ hiện `alert` `(1)` và `(2)`:
+
+```js 
+try {
+  alert('Start of try runs');  // *!*(1) <--*/!*
+  // ...không có lỗi ở đây
+  alert('End of try runs');   // *!*(2) <--*/!*
+} catch (err) {
+  alert('Catch is ignored, because there are no errors'); // (3)
+}
+```
+Ví dụ có lỗi: sẽ hiện `alert` `(1)` và `(3)`:
+
+```js
+try {
+  alert('Start of try runs');  // *!*(1) <--*/!*
+  *!*
+  lalala; // lỗi, biến chưa khai báo!
+  */!*
+  alert('End of try (never reached)');  // (2)
+} catch (err) {
+  alert(`Error has occurred!`); // *!*(3) <--*/!*
+}
+```
