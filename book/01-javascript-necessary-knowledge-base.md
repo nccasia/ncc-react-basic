@@ -731,9 +731,9 @@ B(A);
 Được sử dụng để xử lý bất đồng bộ hoặc xử lý sự kiện
 
 ```javascript
-$("#test").click(() => {
-  //callback function
-});
+document.getElementById("demo").addEventListener("click", () => {
+  alert('da click');
+})
 ```
 
 ```javascript
@@ -750,6 +750,15 @@ function getRequest(url, callback) {
     },
   });
 }
+```
+
+```javascript
+const [title, setTitle] = useState('title');
+
+//useEffect
+useEffect(() => {
+  setTitle('changed title');
+});
 ```
 
 ### 10.2. Promise
