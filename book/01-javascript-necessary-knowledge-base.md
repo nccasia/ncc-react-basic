@@ -753,6 +753,14 @@ function getRequest(url, callback) {
 ```
 
 ```javascript
+function alertFunc() {
+  alert("Hello!");
+}
+
+setTimeout(alertFunc, 3000);
+```
+
+```javascript
 const [title, setTitle] = useState('title');
 
 //useEffect
