@@ -35,6 +35,7 @@ Table of contents
     - [8.2. `forEach()`](#82-foreach)
     - [8.3. `filter()`](#83-filter)
     - [8.4. `some()`](#84-some)
+  - [9. Error handling with try/catch](#9-xử-lý-lỗi-với-trycatch)
 
 ---
 
