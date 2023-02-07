@@ -35,7 +35,11 @@ Table of contents
     - [8.2. `forEach()`](#82-foreach)
     - [8.3. `filter()`](#83-filter)
     - [8.4. `some()`](#84-some)
-
+  - [9. Error handling with try/catch](#9-xử-lý-lỗi-với-trycatch)
+  - [10. Callback, Promise, Async and Await](#10-callback-promise-async-and-await)
+    - [10.1. Callback](#101-callback)
+    - [10.2. Promise](#102-promise)
+    - [10.3. Async and Await](#103-async-and-await)
 ---
 
 ## 1. `var`, `let` and `const`
@@ -703,3 +707,324 @@ try {
   alert(`Error has occurred!`); // *!*(3) <--*/!*
 }
 ```
+
+## 10. Callback, Promise, Async and Await
+
+### 10.1. Callback
+
+Một callback function là function được gọi bởi function khác. Thông thường, function A (callback function) sẽ được truyền vào function B như một parameter,
+function B sẽ gọi function A để thực hiện một chức năng nào đó.
+
+```javascript
+function A() {
+  // ...........
+}
+
+function B(callbackFn) {
+  // ..........
+  callbackFn();
+}
+
+B(A);
+```
+
+Được sử dụng để xử lý bất đồng bộ hoặc xử lý sự kiện
+
+```javascript
+document.getElementById("demo").addEventListener("click", () => {
+  alert('da click');
+})
+```
+
+```javascript
+function getRequest(url, callback) {
+  $.ajax({
+    type: "GET",
+    url: url,
+    success: function (msg) {
+      // do something on success
+      callback(msg);
+    },
+    error: function (msg) {
+      // do something on error
+    },
+  });
+}
+```
+
+```javascript
+function alertFunc() {
+  alert("Hello!");
+}
+
+setTimeout(alertFunc, 3000);
+```
+
+```javascript
+const [title, setTitle] = useState('title');
+
+//useEffect
+useEffect(() => {
+  setTitle('changed title');
+});
+```
+
+### 10.2. Promise
+
+Khi sử dụng callback, dễ gây ra Callback Hell (quá nhiều callbacks lồng nhau, đoạn code nhìn như hình mũi tên), gây mất kiểm soát trong quá trình code, thiếu bộ nhớ, ...\
+=> ES6 giới thiệu **_Promise_** như một giải pháp thay thế để xử lý bất đồng bộ một cách hiệu quả hơn.
+
+Các trạng thái của **_Promise_**:
+
+- **_pending_**: trạng thái khởi tạo, chưa fullfilled hoặc rejected.
+- **_fulfilled_**: trạng thái thực thi thành công.
+- **_rejected_**: trạng thái thực thi thất bại.
+
+Khởi tạo một **_Promise_**:
+
+```javascript
+var promise = new Promise((resolve, reject) => {});
+```
+
+`resolve` là một hàm callback xử lý cho hành động thành công.\
+`reject` là một hàm callback xử lý cho hành động thất bại.
+
+Thenable trong **_Promise_** => Nhận các giá trị kết quả (thành công hoặc thất bại) được trả về khi `resolve` hoặc `reject`.
+
+```javascript
+var promise = new Promise((resolve, reject) => {
+  resolve("OK");
+});
+
+promise.then(
+  (successParams) => {
+    console.log("run resolve")
+    console.log(successParams);
+  },
+  (failParams) => {
+    console.log("run reject")
+    console.log(failParams);
+  }
+);
+```
+
+```javascript
+var promise = new Promise((resolve, reject) => {
+  reject("wrong")
+});
+
+promise.then(
+  (successParams) => {
+    console.log("run resolve")
+    console.log(successParams);
+  },
+  (failParams) => {
+    console.log("run reject")
+    console.log(failParams);
+  }
+);
+```
+
+Có thể sử dụng `catch` để bắt lỗi (nên sử dụng cách này cho rõ ràng)\
+**Chú ý:** khi có `reject`, bắt buộc phải có `then` hoặc `catch`
+
+```javascript
+var promise = new Promise(function (resolve, reject) {
+  reject("something wrong");
+});
+
+promise
+  .then((successParams) => {
+    console.log("yes OK");
+    console.log(successParams);
+  })
+  .catch((errorParams) => {
+    console.log("wrong");
+    console.log(errorParams);
+  });
+```
+
+Consucutive then (kết quả của then hiện tại sẽ quyết định trạng thái của then kế tiếp)
+
+```javascript
+var promise = new Promise((resolve, reject) => {
+  resolve();
+});
+
+promise
+  .then(() => {
+    return new Promise((resolve, reject) => {
+      reject();
+    });
+  })
+  .then(() => {
+    console.log("Success!");
+  })
+  .catch(() => {
+    console.log("Error!");
+  });
+```
+
+**Chú ý:** callback function của **_Promise_** sẽ được chạy ngay lập tức khi **_Promise_** được khởi tạo (xem ví dụ cuối mục 9)
+
+### 10.3. Async and Await
+
+Trong ES6, ta sử dụng **_Promise_** (.then()) để thay thế cho callback cũ. Tuy nhiên, vấn đề cố hữu của callback vẫn chưa được giải quyết triệt để (vẫn khá khó để đọc/mở rộng/bảo trì code do có thể có rất nhiều then).\
+=> ES7 giới thiệu **_Async/Await_** để xử lý các tác vụ bất đồng bộ. **_Async/Await_** được xây dựng dựa trên **_Promise_** nên hoàn toàn tương thích với **_Promise_**
+
+**_Async_** (khởi tạo một function bất đồng bộ)
+
+- Tự động chuyển một function bình thường thành một **_Promise_**
+- Cho phép sử dụng **_Await_**
+
+**_Await_** (dừng việc thực thi của một async function cho đến khi **_Promise_** được thực thi (resolve/reject))
+
+- Khi được đặt trước một **_Promise_**, đợi cho đến khi **_Promise_** kết thúc, trả về kết quả
+- Chỉ hoạt động với **_Promise_**, không hoạt động với callback
+- Chỉ có thể được sử dụng trong async functions
+
+```javascript
+var promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("done 300ms")
+    }, 300);
+  })
+
+var run = () => { //thêm async để chạy
+  var result = await promise; //error
+  console.log(result);
+}
+
+run()
+```
+
+```javascript
+fetch("api1")
+  .then((response) => {
+    return fetch("api2");
+  })
+  .then((params) => {
+    return fetch("api3");
+  })
+  .then((response) => {
+    console.log("Success!");
+  });
+//tương đương với
+
+async function getData() {
+  var res1 = await fetch("api1");
+  var res2 = await fetch("api2");
+  var res3 = await fetch("api3");
+}
+
+getData();
+```
+
+Kết hợp cùng try/catch để bắt lỗi
+
+```javascript
+
+const fetch = () => {
+  return new Promise((resolve, reject) => {
+    reject(new Error('day la loi'))
+  })
+}
+
+async function getData() {
+  try {
+    const response = await fetch() 
+    console.log('response: ', response)
+  } catch (error) {
+    console.log("error: ", error)
+  }
+}
+
+getData();
+```
+
+Lỗi thường gặp khi sử dụng **_Promise_** - **_Async/Await_**
+
+```javascript
+const logTime = () => {
+  console.log(new Date());
+};
+
+const getPromise = (message) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(message);
+      logTime();
+      resolve();
+    }, 2000);
+  });
+};
+
+const function1 = async () => {
+  logTime();
+
+  var promise1 = getPromise("promise1 done");
+
+  var promise2 = getPromise("promise2 done");
+
+  await promise1;
+  await promise2;
+};
+
+const function2 = async () => {
+  logTime();
+
+  await getPromise("promise1 done");
+
+  await getPromise("promise2 done");
+};
+
+const function3 = async () => {
+  logTime();
+
+  var promise1 = getPromise("promise1 done");
+
+  var promise2 = getPromise("promise2 done");
+
+  await Promise.all([promise1, promise2]);
+};
+
+//chạy từng function 1, 2, 3 để so sánh kết quả
+
+kết quả của function 3 (2 promises resolve cùng thời điểm)
+2022-12-01T12:49:19.915Z
+
+=========
+promise1 done
+2022-12-01T12:49:21.974Z
+=========
+promise2 done
+2022-12-01T12:49:21.975Z
+=========
+
+kết quả của function 2
+2022-12-01T12:50:49.749Z
+
+=========
+promise1 done
+2022-12-01T12:50:51.757Z
+=========
+promise2 done
+2022-12-01T12:50:53.758Z
+=========
+
+kết quả của function 1 (kết quả tương đồng với function 3)
+2022-12-01T12:53:35.016Z
+
+=========
+promise1 done
+2022-12-01T12:53:37.075Z
+=========
+promise2 done
+2022-12-01T12:53:37.075Z
+=========
+```
+
+Nhận xét:
+- Kết quả của function 2: không có nhiều điều để nói, theo đúng quy tắc async/await (promise 2 resolves sau promise 1 một khoảng thời gian là 2s)
+- Kết quả của function 3: 2 promises resolve cùng thời điểm do sử dụng Promise.all (đọc thêm tại https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+- Kết quả của function 1: nhìn sơ qua thì expect sẽ giống với function 2 (promise 2 resolves sau promise 1 một khoảng thời gian là 2s), nhưng thực chất thì kết quả lại giống function 3 (resolve cùng lúc), lý do là vì callback function trong Promise sẽ được execute ngay lập tức sau khi Promise được khởi tạo => 2 function setTimeout của 2 Promises chạy cùng lúc và sau thì 2 callback của 2 function setTimeout được chạy.
